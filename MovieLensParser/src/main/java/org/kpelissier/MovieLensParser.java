@@ -32,7 +32,7 @@ public class MovieLensParser implements AutoCloseable {
 
     public void importMovies() throws IOException {
 
-        System.out.println("Importing rating.csv ...");
+        System.out.println("Importing movies.csv ...");
 
         var reader = openCSVFromRessource("ml-latest-small/movies.csv");
         String line = reader.readLine();

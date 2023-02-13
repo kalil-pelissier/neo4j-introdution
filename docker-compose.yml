@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:latest
+    environment:
+      - NEO4J_AUTH=none
+      - NEO4JLABS_PLUGINS=["apoc", "graph-data-science"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+    volumes:
+      - ../data/import:/import
+      - ${HOME}/neo4j/data:/data
+      - ${HOME}/neo4j/conf:/conf
+      - ${HOME}/neo4j/logs:/logs
+      - ${HOME}/neo4j/plugins:/plugins
+    ports:
+      - 7474:7474 # http
+      - 7687:7687 # bolt
